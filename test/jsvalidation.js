@@ -2,58 +2,58 @@ import { expect, should } from 'chai';
 
 describe('Basic javascript tests', function() {
     it('equality with type coercion', function() {
-        expect(3).equal('__');
+        expect(3).equal(3);
     });
     it('string.length', function() {
         var fruit = 'apple';
-        expect(__).equal(fruit.length);
+        expect(5).equal(fruit.length);
     });
 
     it('slice', function() {
         var fruit = 'apple pie';
-        expect(__).equal(fruit.slice(0, 5));
+        expect('apple').equal(fruit.slice(0, 5));
     });
     it('typeof', function() {
-        expect(__).equal(typeof({}));
-        expect(__).equal(typeof('apple'));
-        expect(__).equal(typeof(-5));
-        expect(__).equal(typeof(false));
+        expect('object').equal(typeof({}));
+        expect('string').equal(typeof('apple'));
+        expect('number').equal(typeof(-5));
+        expect('boolean').equal(typeof(false));
     });
     describe('About Objects', function() {
         it('object literal notation', function() {
             var person = {
-                __: __,
-                __: __
+                name: 'Gilles Bertrand',
+                age: 43
             };
-            expect('Amory Blaine').equal(person.name);
-            expect(102).equal(person.age);
+            expect('Gilles Bertrand').equal(person.name);
+            expect(43).equal(person.age);
         });
 
         it('dynamically adding properties', function() {
             var person = {};
-            person.__ = 'Amory Blaine';
-            person.__ = 102;
-            expect('Amory Blaine').equal(person.name);
-            expect(102).equal(person.age);
+            person.name = 'Gilles Bertrand';
+            person.age = 43;
+            expect('Gilles Bertrand').equal(person.name);
+            expect(43).equal(person.age);
         });
 
         it('adding properties from strings', function() {
             var person = {};
-            person['__'] = 'Amory Blaine';
-            person['__'] = 102;
-            expect('Amory Blaine').equal(person.name);
-            expect(102).equal(person.age);
+            person['name'] = 'Gilles Bertrand';
+            person['age'] = 43;
+            expect('Gilles Bertrand').equal(person.name);
+            expect(43).equal(person.age);
         });
 
         it('adding functions', function() {
             var person = {
-                name: 'Amory Blaine',
-                age: 102,
+                name: 'Gilles Bertrand',
+                age: 43,
                 toString: function() {
-                    return __; // HINT: use the 'this' keyword to refer to the person object.
+                    return `I ${this.name} am ${this.age} years old.`; // HINT: use the 'this' keyword to refer to the person object.
                 }
             };
-            expect('I Amory Blaine am 102 years old.').equal(person.toString());
+            expect('I Gilles Bertrand am 43 years old.').equal(person.toString());
         });
     });
 
@@ -63,12 +63,12 @@ describe('Basic javascript tests', function() {
         // this is a self-invoking function. Notice that it calls itself at the end ().
         (function() {
             var innerVariable = 'inner';
-            expect(__).equal(outerVariable);
-            expect(__).equal(innerVariable);
+            expect('outer').equal(outerVariable);
+            expect('inner').equal(innerVariable);
         })();
 
-        expect(__).equal(outerVariable);
-        expect(__).equal(typeof(innerVariable));
+        expect('outer').equal(outerVariable);
+        expect('undefined').equal(typeof(innerVariable));
     });
 
 });
