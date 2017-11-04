@@ -25,35 +25,35 @@ describe('Basic javascript tests', function() {
                 __: __,
                 __: __
             };
-            expect('Amory Blaine').equal(person.name);
-            expect(102).equal(person.age);
+            expect('Joelle Hoquart').equal(person.name);
+            expect(43).equal(person.age);
         });
 
         it('dynamically adding properties', function() {
             var person = {};
-            person.__ = 'Amory Blaine';
-            person.__ = 102;
-            expect('Amory Blaine').equal(person.name);
-            expect(102).equal(person.age);
+            person.__ = 'Joelle Hoquart';
+            person.__ = 43;
+            expect('Joelle Hoquart').equal(person.name);
+            expect(43).equal(person.age);
         });
 
         it('adding properties from strings', function() {
             var person = {};
-            person['__'] = 'Amory Blaine';
-            person['__'] = 102;
-            expect('Amory Blaine').equal(person.name);
-            expect(102).equal(person.age);
+            person['__'] = 'Joelle Hoquart';
+            person['__'] = 43;
+            expect('Joelle Hoquart').equal(person.name);
+            expect(43).equal(person.age);
         });
 
         it('adding functions', function() {
             var person = {
-                name: 'Amory Blaine',
-                age: 102,
+                name: 'Joelle Hoquart',
+                age: 43,
                 toString: function() {
                     return __; // HINT: use the 'this' keyword to refer to the person object.
                 }
             };
-            expect('I Amory Blaine am 102 years old.').equal(person.toString());
+            expect('I Joelle Hoquart am 43 years old.').equal(person.toString());
         });
     });
 
